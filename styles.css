@@ -1,0 +1,171 @@
+
+.body{
+
+  font-family: sans-serif;
+
+  font-weight: bold;
+}
+.pimage-box {
+  width: 620px;
+  height: 300px;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #002147;
+  gap: 50px;
+}
+
+.pimg-wrapper {
+  position: relative;
+}
+
+.pimg-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+  filter: brightness(0.9); 
+  transition: transform 0.3s ease;
+}
+
+.poverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+.ptitle-content {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: calc(100% - 20px);
+  color: rgb(251, 250, 250);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+  transition: bottom 0.4s ease;
+  z-index: 2;
+}
+
+/* Title style */
+.ptitle {
+  margin: 10px 0;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.2;
+  font-family: sans-serif;
+}
+
+/* Bullet content */
+.pcontent {
+  list-style: none;
+  margin: 10px 0 0 10px;
+  padding: 10px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+  font-size: 0.9rem;
+  line-height: 1.3rem;
+  color: #ffffff;
+  font-family: sans-serif;
+}
+
+/* Bullet items */
+.pcontent li {
+  position: relative;
+  padding-left: 34px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+/* Bullet icons prop */
+.pcontent li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/*  bullet icons */
+.pbullet-1::before {
+  background-image: url('https://arconcivil.com.au/wp-content/uploads/2024/07/cost.svg');
+}
+.pbullet-2::before {
+  background-image: url('https://arconcivil.com.au/wp-content/uploads/2024/07/handshake.svg');
+}
+.pbullet-3::before {
+  background-image: url('https://arconcivil.com.au/wp-content/uploads/2024/07/helmet-1.svg');
+}
+.pbullet-4::before {
+  background-image: url('https://arconcivil.com.au/wp-content/uploads/2024/07/pin.svg');
+}
+
+/* Hover  */
+.pimage-box:hover .pimg-wrapper img {
+  transform: scale(1.05);
+}
+
+.pimage-box:hover .ptitle-content {
+  bottom: 10px; 
+}
+
+.pimage-box:hover .pcontent {
+  max-height: 10rem;
+  opacity: 1;
+}
+
+.pbox-model {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(6, 290px);
+  gap: 20px;
+  width: max-content;
+  padding: 10px;
+  border-radius: 25px;
+  background-color: #002147;
+  margin: 20px auto;
+}
+
+@media (max-width: 767px) {
+  /* 1-column layout for .pbox-model */
+  .pbox-model {
+    grid-template-columns: 1fr;
+    /* padding: 55px; */
+    /* gap:30px; */
+    /* width: 100%; */
+    
+  }
+
+  /* Always show content on mobile */
+  .pcontent {
+    max-height: 1000px;
+    opacity: 1;
+  }
+  .pimage-box{
+    width:100%;
+    
+  }
+/*   
+  .pbox-model{
+    width:90%;
+    height: 100%;
+  } */
+.ptitle-content {
+  
+  /* height:95%; */
+}
+
+  /* Optional: prevent hover zoom effect on mobile if you want */
+  .pimage-box:hover .pimg-wrapper img {
+    transform: none;
+  }
+}
